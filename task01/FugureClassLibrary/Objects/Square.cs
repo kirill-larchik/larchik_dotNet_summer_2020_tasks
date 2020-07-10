@@ -44,7 +44,7 @@ namespace FigureClassLibrary.Objects
 
             // Проверка на целостность фигуры.
             if (!(leftSide == rightSide && rightSide == topSide && topSide == bottomSide && bottomSide == leftSide))
-                throw new Exception();
+                throw new Exception("Неккоректные исходные данные.");
 
             side = leftSide;
         }

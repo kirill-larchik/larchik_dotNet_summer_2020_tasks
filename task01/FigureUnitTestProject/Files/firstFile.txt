@@ -1,0 +1,5 @@
+﻿Rectangle 1 1 3 3
+Square 4
+Rectangle 0 0 4 0 0 3 4 3
+Square 0 0 4 0 0 4 4 4
+Rectangle 1 1 5 1 1 4 5 4

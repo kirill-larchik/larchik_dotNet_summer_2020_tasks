@@ -1,0 +1,4 @@
+﻿Rectangle adsa sadasdada sd as das
+Square 4
+Rectangle 0 0 2 0 0 3 4 3
+Square 0 0 4 0 0 4 4 4

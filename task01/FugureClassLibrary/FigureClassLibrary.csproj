@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FigureCollection.cs" />
     <Compile Include="Objects\Figure.cs" />
     <Compile Include="Objects\Rectangle.cs" />
     <Compile Include="Objects\Square.cs" />

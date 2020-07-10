@@ -67,7 +67,7 @@ namespace FigureClassLibrary.Objects
         private void CheckFigure()
         {
             if (topSide != bottomSide || leftSide != rightSide)
-                throw new Exception();
+                throw new Exception("Неккоректные исходные данные.");
         }
 
         /// <summary>
