@@ -148,5 +148,17 @@ namespace GCDClassLibrary
 
             return firstNumber;
         }
+
+        /// <summary>
+        /// Метод вовзращает данные, данные для построения гистограммы, сравнивающей время нахождения решения каждым из методов. Первый элемент массива - время алгоритма Евклида, второй - время алгоритма Стейна.
+        /// </summary>
+        /// <returns></returns>
+        public TimeSpan[] GetTimesData(int firstNumber, int secondNumber)
+        {
+            TimeSpan[] times = new TimeSpan[2];
+            GetGDC(firstNumber, secondNumber, out times[0]);
+            GetBinaryGDC((uint)firstNumber, (uint)secondNumber, out times[1]);
+            return times;
+        }
     }
 }

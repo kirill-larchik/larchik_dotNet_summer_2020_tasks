@@ -218,5 +218,21 @@ namespace GCDUnitTestProject
 
             Assert.IsTrue(time.TotalSeconds > 0);
         }
+
+        /// <summary>
+        /// Метод подготовки данных для построения гистограммы.
+        /// </summary>
+        [TestMethod]
+        public void GetTimesData()
+        {
+            int firstNumber = 81;
+            int secondNumber = 243;
+
+            GCDClass gCD = new GCDClass();
+            TimeSpan[] actual = gCD.GetTimesData(firstNumber, secondNumber);
+
+            // Алгоритм Стейна работает быстрее. 
+            Assert.IsTrue(actual[0].TotalSeconds > actual[1].TotalSeconds);
+        }
     }
 }
