@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="RectangleUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SquareUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

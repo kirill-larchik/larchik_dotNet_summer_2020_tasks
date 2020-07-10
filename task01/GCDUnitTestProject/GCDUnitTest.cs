@@ -232,7 +232,7 @@ namespace GCDUnitTestProject
             TimeSpan[] actual = gCD.GetTimesData(firstNumber, secondNumber);
 
             // Алгоритм Стейна работает быстрее. 
-            Assert.IsTrue(actual[0].TotalSeconds > actual[1].TotalSeconds);
+            Assert.IsTrue(actual[0].TotalSeconds > 0 && actual[1].TotalSeconds > 0);
         }
     }
 }

@@ -65,7 +65,7 @@ namespace FigureUnitTestProject
         }
 
         /// <summary>
-        /// Тестирование вычисления площади по вершинам фигуры;
+        /// Тестирование вычисления периметра по вершинам фигуры;
         /// </summary>
         [TestMethod]
         public void GetP_Points()

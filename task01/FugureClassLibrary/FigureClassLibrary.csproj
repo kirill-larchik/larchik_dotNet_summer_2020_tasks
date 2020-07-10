@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Objects\Figure.cs" />
     <Compile Include="Objects\Rectangle.cs" />
+    <Compile Include="Objects\Square.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
