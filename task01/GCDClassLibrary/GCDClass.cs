@@ -12,14 +12,22 @@ namespace GCDClassLibrary
     /// </summary>
     public class GCDClass
     {
+        // Необходимо для работы перегруженных методов после изменения метода вычисления НОД двух целых чисел.
+        TimeSpan time;
+
         /// <summary>
         /// Метод, реализующий алгоритм Евклида для нахождения НОД двух целых чисел.
         /// </summary>
         /// <param name="firstNumber"></param>
         /// <param name="secondNumber"></param>
+        /// <param name="time"></param>
         /// <returns></returns>
-        public int GetGDC(int firstNumber, int secondNumber)
+        public int GetGDC(int firstNumber, int secondNumber, out TimeSpan time)
         {
+            // Запуск таймера
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             if (firstNumber < 0 || secondNumber < 0)
             {
                 firstNumber = Math.Abs(firstNumber);
@@ -34,6 +42,10 @@ namespace GCDClassLibrary
                     secondNumber -= firstNumber;
             }
 
+            // Остановка таймера
+            stopwatch.Stop();
+            time = stopwatch.Elapsed;
+
             return firstNumber;
         }
 
@@ -46,8 +58,8 @@ namespace GCDClassLibrary
         /// <returns></returns>
         public int GetGDC(int firstNumber, int secondNumber, int thirdNumber)
         {
-            int tempNumber = GetGDC(firstNumber, secondNumber);
-            return GetGDC(tempNumber, thirdNumber);
+            int tempNumber = GetGDC(firstNumber, secondNumber, out time);
+            return GetGDC(tempNumber, thirdNumber, out time);
         }
 
         /// <summary>
@@ -61,7 +73,7 @@ namespace GCDClassLibrary
         public int GetGDC(int firstNumber, int secondNumber, int thirdNumber, int fourthNumber)
         {
             int tempNumber = GetGDC(firstNumber, secondNumber, thirdNumber);
-            return GetGDC(tempNumber, fourthNumber);
+            return GetGDC(tempNumber, fourthNumber, out time);
         }
 
         /// <summary>
@@ -76,7 +88,7 @@ namespace GCDClassLibrary
         public int GetGDC(int firstNumber, int secondNumber, int thirdNumber, int fourthNumber, int fifthNumber)
         {
             int tempNumber = GetGDC(firstNumber, secondNumber, thirdNumber, fourthNumber);
-            return GetGDC(tempNumber, fifthNumber);
+            return GetGDC(tempNumber, fifthNumber, out time);
         }
 
         /// <summary>

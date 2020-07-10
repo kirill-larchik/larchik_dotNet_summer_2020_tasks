@@ -20,8 +20,9 @@ namespace GCDUnitTestProject
             int secondNumber = 243;
             int expected = 81;
 
+            TimeSpan time;
             GCDClass gCD = new GCDClass();
-            int actual = gCD.GetGDC(firstNumber, secondNumber);
+            int actual = gCD.GetGDC(firstNumber, secondNumber, out time);
 
             Assert.AreEqual(expected, actual);
         }
@@ -36,8 +37,9 @@ namespace GCDUnitTestProject
             int secondNumber = 72;
             int expected = 36;
 
+            TimeSpan time;
             GCDClass gCD = new GCDClass();
-            int actual = gCD.GetGDC(firstNumber, secondNumber);
+            int actual = gCD.GetGDC(firstNumber, secondNumber, out time);
 
             Assert.AreEqual(expected, actual);
         }
@@ -52,8 +54,9 @@ namespace GCDUnitTestProject
             int secondNumber = 44;
             int expected = 44;
 
+            TimeSpan time;
             GCDClass gCD = new GCDClass();
-            int actual = gCD.GetGDC(firstNumber, secondNumber);
+            int actual = gCD.GetGDC(firstNumber, secondNumber, out time);
 
             Assert.AreEqual(expected, actual);
         }
