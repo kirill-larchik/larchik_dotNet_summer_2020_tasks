@@ -146,7 +146,7 @@ namespace GCDUnitTestProject
         }
 
         /// <summary>
-        /// Метод нахождения НОД четырёх целых чисел.
+        /// Метод нахождения НОД пяти целых чисел.
         /// </summary>
         [TestMethod]
         public void GetGDC_10080and2646and56and28and144_2returned()
@@ -165,7 +165,7 @@ namespace GCDUnitTestProject
         }
 
         /// <summary>
-        /// Метод нахождения НОД четырёх целых чисел.
+        /// Метод нахождения НОД пяти целых чисел.
         /// </summary>
         [TestMethod]
         public void GetGDC_78and294and570and36and144_6returned()
@@ -181,6 +181,39 @@ namespace GCDUnitTestProject
             int actual = gCD.GetGDC(firstNumber, secondNumber, thirdNumber, fourthNumber, fifthNumber);
 
             Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        /// Метод бинароного нахождения НОД двух целых чисел.
+        /// </summary>
+        [TestMethod]
+        public void GetBinaryGDC_81and243_81returned()
+        {
+            uint firstNumber = 81;
+            uint secondNumber = 243;
+            uint expected = 81;
+
+            TimeSpan time;
+            GCDClass gCD = new GCDClass();
+            uint actual = gCD.GetBinaryGDC(firstNumber, secondNumber, out time);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        /// Метод бинароного нахождения НОД двух целых чисел.
+        /// </summary>
+        [TestMethod]
+        public void GetBinaryGDC_CheckTime()
+        {
+            uint firstNumber = 81;
+            uint secondNumber = 243;
+
+            TimeSpan time;
+            GCDClass gCD = new GCDClass();
+            uint actual = gCD.GetBinaryGDC(firstNumber, secondNumber, out time);
+
+            Assert.IsTrue(time.TotalSeconds > 0);
         }
     }
 }
