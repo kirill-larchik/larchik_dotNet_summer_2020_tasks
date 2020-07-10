@@ -153,5 +153,30 @@ namespace FigureClassLibrary
                 return new Square(lowerLeftPoint, lowerRightPoint, upperLeftPoint, upperRightPoint);
             }
         }
+
+        /// <summary>
+        /// Метод формирования массива фигур, равных заданной.
+        /// </summary>
+        /// <param name="figure"></param>
+        /// <returns></returns>
+        public Figure[] GetEqualFigures(Figure figure)
+        {
+            int count = 0;
+            for (int i = 0; i < GetLength; i++)
+            {
+                if (figure.Equals(figures[i]))
+                    count++;
+            }
+
+            Figure[] equalFigures = new Figure[count];
+            int index = 0;
+            for (int i = 0; i < GetLength; i++)
+            {
+                if (figure.Equals(figures[i]))
+                    equalFigures[index++] = figures[i];
+            }
+
+            return equalFigures;
+        }
     }
 }

@@ -27,7 +27,7 @@ namespace FigureUnitTestProject
                 new Square(4),
                 new Rectangle(3, 3, 4, 4)
             };
-            
+
             FigureCollection figureCollection = new FigureCollection();
             figureCollection.ReadFile(stringPath);
 
@@ -76,6 +76,38 @@ namespace FigureUnitTestProject
             figureCollection.ReadFile(stringPath);
 
             CollectionAssert.AreEqual(figures, figureCollection.GetFigures);
+        }
+
+        /// <summary>
+        /// Метод тестирования формирования массива массива фигур, равных заданной.
+        /// </summary>
+        [TestMethod]
+        public void GetEqualFigures()
+        {
+            Rectangle rectangle = new Rectangle(3, 3, 4, 4);
+            Figure[] expected = new Figure[]
+            {
+                rectangle,
+                rectangle,
+            };
+
+
+            string stringPath = Directory.GetCurrentDirectory() + @"\Files\firstFile.txt";
+            Figure[] figures = new Figure[]
+            {
+                new Rectangle(1, 1, 3, 3),
+                new Square(4),
+                new Rectangle(3, 3, 4, 4),
+                new Square(4),
+                new Rectangle(3, 3, 4, 4)
+            };
+
+            FigureCollection figureCollection = new FigureCollection();
+            figureCollection.ReadFile(stringPath);
+            Figure[] actual = figureCollection.GetEqualFigures(figures[2]);
+
+
+            CollectionAssert.AreEqual(expected, actual);
         }
     }
 }
