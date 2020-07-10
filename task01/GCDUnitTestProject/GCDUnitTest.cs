@@ -57,5 +57,130 @@ namespace GCDUnitTestProject
 
             Assert.AreEqual(expected, actual);
         }
+
+        /// <summary>
+        /// Метод нахождения НОД трёх целых чисел.
+        /// </summary>
+        [TestMethod]
+        public void GetGDC_10080and2646and56_14returned()
+        {
+            int firstNumber = 10080;
+            int secondNumber = 2646;
+            int thirdNumber = 56;
+            int expected = 14;
+
+            GCDClass gCD = new GCDClass();
+            int actual = gCD.GetGDC(firstNumber, secondNumber, thirdNumber);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        /// Метод нахождения НОД трёх целых чисел.
+        /// </summary>
+        [TestMethod]
+        public void GetGDC_78and294and570_6returned()
+        {
+            int firstNumber = 78;
+            int secondNumber = 294;
+            int thirdNumber = 570;
+            int expected = 6;
+
+            GCDClass gCD = new GCDClass();
+            int actual = gCD.GetGDC(firstNumber, secondNumber, thirdNumber);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        /// Метод нахождения НОД трёх целых чисел.
+        /// </summary>
+        [TestMethod]
+        public void GetGDC_10080andMinus2646and56_14returned()
+        {
+            int firstNumber = 10080;
+            int secondNumber = -2646;
+            int thirdNumber = 56;
+            int expected = 14;
+
+            GCDClass gCD = new GCDClass();
+            int actual = gCD.GetGDC(firstNumber, secondNumber, thirdNumber);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        /// Метод нахождения НОД четырёх целых чисел.
+        /// </summary>
+        [TestMethod]
+        public void GetGDC_78and294and570and36_6returned()
+        {
+            int firstNumber = 78;
+            int secondNumber = 294;
+            int thirdNumber = 570;
+            int fourthNumber = 36;
+            int expected = 6;
+
+            GCDClass gCD = new GCDClass();
+            int actual = gCD.GetGDC(firstNumber, secondNumber, thirdNumber, fourthNumber);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        /// Метод нахождения НОД четырёх целых чисел.
+        /// </summary>
+        [TestMethod]
+        public void GetGDC_10080and2646and56and28_14returned()
+        {
+            int firstNumber = 10080;
+            int secondNumber = 2646;
+            int thirdNumber = 56;
+            int fourthNumber = 28;
+            int expected = 14;
+
+            GCDClass gCD = new GCDClass();
+            int actual = gCD.GetGDC(firstNumber, secondNumber, thirdNumber, fourthNumber);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        /// Метод нахождения НОД четырёх целых чисел.
+        /// </summary>
+        [TestMethod]
+        public void GetGDC_10080and2646and56and28and144_2returned()
+        {
+            int firstNumber = 10080;
+            int secondNumber = 2646;
+            int thirdNumber = 56;
+            int fourthNumber = 28;
+            int fifthNumber = 144;
+            int expected = 2;
+
+            GCDClass gCD = new GCDClass();
+            int actual = gCD.GetGDC(firstNumber, secondNumber, thirdNumber, fourthNumber, fifthNumber);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        /// Метод нахождения НОД четырёх целых чисел.
+        /// </summary>
+        [TestMethod]
+        public void GetGDC_78and294and570and36and144_6returned()
+        {
+            int firstNumber = 78;
+            int secondNumber = 294;
+            int thirdNumber = 570;
+            int fourthNumber = 36;
+            int fifthNumber = 144;
+            int expected = 6;
+
+            GCDClass gCD = new GCDClass();
+            int actual = gCD.GetGDC(firstNumber, secondNumber, thirdNumber, fourthNumber, fifthNumber);
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
