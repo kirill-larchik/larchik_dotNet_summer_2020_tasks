@@ -120,6 +120,50 @@ namespace PolynomialClassLibrary
             return tempCoefficients;
         }
 
+        /// <summary>
+        /// Возвращает многочлен - результат произведения двух заданных многочленов.
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns>Результат произведения двух заданных многочленов</returns>
+        public static Polynomial operator *(Polynomial left, Polynomial right)
+        {
+            int[] tempCoefficients = new int[left.Length + right.Length - 1];
+
+            for (int i = 0; i < tempCoefficients.Length; i++)
+                tempCoefficients[i] = 0;
+
+            for(int i = 0; i < left.Length; i++)
+            {
+                for (int j = 0; j < right.Length; j++)
+                    tempCoefficients[i + j] = left[i] * right[j];
+            }
+
+            return new Polynomial(tempCoefficients);
+        }
+
+        /// <summary>
+        /// Сравнивает два многочлена. Возвращает true, если заданные многочлены равны, иначе - false.
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns>Возвращает true, если заданные многочлены равны, иначе - false.</returns>
+        public static bool operator ==(Polynomial left, Polynomial right)
+        {
+            return left.Equals(right);
+        }
+
+        /// <summary>
+        /// Сравнивает два многочлена. Возвращает true, если заданные многочлены не равны, иначе - false.
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns>Возвращает true, если заданные многочлены не равны, иначе - false.</returns>
+        public static bool operator !=(Polynomial left, Polynomial right)
+        {
+            return !left.Equals(right);
+        }
+
         public override bool Equals(object obj)
         {
             return obj is Polynomial && GetHashCode() == obj.GetHashCode();

@@ -61,5 +61,78 @@ namespace PolynomialUnitTestProject
 
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void Multiplication_EqualDegres()
+        {
+            Polynomial firstPolynomial = new Polynomial(2, -4, -12);
+            Polynomial secondPolynomial = new Polynomial(12, 61, -93);
+            Polynomial expected = new Polynomial(24, 74, -574, -360, 1116);
+
+            Polynomial actual = firstPolynomial * secondPolynomial;
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Multiplication_NotEqualDegres()
+        {
+            Polynomial firstPolynomial = new Polynomial(2, -4, -12, 44);
+            Polynomial secondPolynomial = new Polynomial(12, 61, -93);
+            Polynomial expected = new Polynomial(24, 74, -574, 168, 3800, -4092);
+
+            Polynomial actual = firstPolynomial * secondPolynomial;
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Equal_TrueReturned()
+        {
+            Polynomial firstPolynomial = new Polynomial(2, -4, -12, 44);
+            Polynomial secondPolynomial = new Polynomial(2, -4, -12, 44);
+            bool expected = true;
+            
+            bool actual = firstPolynomial == secondPolynomial;
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Equal_FalseReturned()
+        {
+            Polynomial firstPolynomial = new Polynomial(2, -4, -12, 44);
+            Polynomial secondPolynomial = new Polynomial(12, 61, -93);
+            bool expected = false;
+
+            bool actual = firstPolynomial == secondPolynomial;
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void NotEqual_TrueReturned()
+        {
+            Polynomial firstPolynomial = new Polynomial(2, -4, -12, 44);
+            Polynomial secondPolynomial = new Polynomial(12, 61, -93);
+            bool expected = true;
+
+            bool actual = firstPolynomial != secondPolynomial;
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void NotEqual_FalseReturned()
+        {
+            Polynomial firstPolynomial = new Polynomial(24, 74, -574, 168, 3800, -4092);
+            Polynomial secondPolynomial = new Polynomial(24, 74, -574, 168, 3800, -4092);
+            bool expected = false;
+
+            bool actual = firstPolynomial != secondPolynomial;
+
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 }
