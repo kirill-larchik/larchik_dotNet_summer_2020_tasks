@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "subtask2", "subtask2", "{1C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolynomialClassLibrary", "PolynomialClassLibrary\PolynomialClassLibrary.csproj", "{6606DCBE-5B75-47D2-BBFC-C39A29579272}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolynomialUnitTestProject", "PolynomialUnitTestProject\PolynomialUnitTestProject.csproj", "{047FE512-5CED-4FB5-A4C8-1E28E0E8D9C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{6606DCBE-5B75-47D2-BBFC-C39A29579272}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6606DCBE-5B75-47D2-BBFC-C39A29579272}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6606DCBE-5B75-47D2-BBFC-C39A29579272}.Release|Any CPU.Build.0 = Release|Any CPU
+		{047FE512-5CED-4FB5-A4C8-1E28E0E8D9C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{047FE512-5CED-4FB5-A4C8-1E28E0E8D9C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{047FE512-5CED-4FB5-A4C8-1E28E0E8D9C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{047FE512-5CED-4FB5-A4C8-1E28E0E8D9C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +45,7 @@ Global
 		{32731C22-54B9-4498-A75C-B0C432B27890} = {3F509164-90E0-41DC-85B1-118C03315619}
 		{26833938-205D-45B1-9DF4-CDC2CE539F7E} = {3F509164-90E0-41DC-85B1-118C03315619}
 		{6606DCBE-5B75-47D2-BBFC-C39A29579272} = {1C58F25F-A165-404C-91B8-7528B12F5A34}
+		{047FE512-5CED-4FB5-A4C8-1E28E0E8D9C7} = {1C58F25F-A165-404C-91B8-7528B12F5A34}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C15FC008-BB0E-4BAB-986E-AB5C42CA19B1}
