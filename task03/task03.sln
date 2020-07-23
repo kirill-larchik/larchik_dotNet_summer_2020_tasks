@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SheetsLibrary", "SheetsLibr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiguresUnitTestProject", "FiguresUnitTestProject\FiguresUnitTestProject.csproj", "{87361E82-DB88-4D9E-AF47-FA007E80C172}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiguresBoxLibrary", "FiguresBoxLibrary\FiguresBoxLibrary.csproj", "{0C0449AE-E5F8-40D7-8ADC-73519CBA8B2D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{87361E82-DB88-4D9E-AF47-FA007E80C172}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87361E82-DB88-4D9E-AF47-FA007E80C172}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87361E82-DB88-4D9E-AF47-FA007E80C172}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C0449AE-E5F8-40D7-8ADC-73519CBA8B2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C0449AE-E5F8-40D7-8ADC-73519CBA8B2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C0449AE-E5F8-40D7-8ADC-73519CBA8B2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C0449AE-E5F8-40D7-8ADC-73519CBA8B2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
