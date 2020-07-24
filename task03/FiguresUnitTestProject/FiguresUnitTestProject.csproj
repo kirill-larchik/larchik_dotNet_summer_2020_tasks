@@ -53,6 +53,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CirclesUnitTest.cs" />
     <Compile Include="FiguresBoxXmlUnitTest.cs" />
+    <Compile Include="FiguresBoxUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

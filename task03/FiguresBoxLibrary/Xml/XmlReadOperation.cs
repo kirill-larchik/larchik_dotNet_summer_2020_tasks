@@ -54,8 +54,15 @@ namespace FiguresBoxLibrary.Xml
                 int index = 0;
                 foreach (XmlNode node in list)
                 {
-                    figures[index] = GetFigure(node);
-                    index++;
+                    if (index != figures.Length)
+                    {
+                        figures[index] = GetFigure(node);
+                        index++;
+                    }
+                    else
+                    {
+                        return figures;
+                    }
                 }
 
                 return figures;
@@ -111,8 +118,15 @@ namespace FiguresBoxLibrary.Xml
                     }
                     else if ((reader.NodeType == XmlNodeType.EndElement) && (reader.Name == "figure"))
                     {
-                        figures[index] = GetConcreteSheetFigure(material, form, length, width, radius);
-                        index++;
+                        if (index != figures.Length)
+                        {
+                            figures[index] = GetConcreteSheetFigure(material, form, length, width, radius);
+                            index++;
+                        }
+                        else
+                        {
+                            return figures;
+                        }
                     }
                 }
 
