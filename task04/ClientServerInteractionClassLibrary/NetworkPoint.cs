@@ -45,5 +45,27 @@ namespace ClientServerInteractionClassLibrary
 
             ipPoint = new IPEndPoint(IPAddress.Parse(ipString), port);
         }
+
+        /// <summary>
+        /// The delegate for methods, which encodings and returns message.
+        /// </summary>
+        /// <param name="message">The client(server) message.</param>
+        /// <returns>New encodinged message.</returns>
+        public delegate string EncodingMessageHandler(string message);
+
+        /// <summary>
+        /// Event, which calls the EncodingMessage delegate.
+        /// </summary>
+        public event EncodingMessageHandler EncodingMessageEvent;
+
+        /// <summary>
+        /// Calls event in derived classes.
+        /// </summary>
+        /// <param name="message">The client(server) message.</param>
+        /// <returns>New encodinged message.</returns>
+        protected string CallEvent(string message)
+        {
+            return EncodingMessageEvent?.Invoke(message);
+        }
     }
 }

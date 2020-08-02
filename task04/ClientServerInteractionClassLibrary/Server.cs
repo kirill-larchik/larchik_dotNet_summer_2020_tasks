@@ -53,7 +53,7 @@ namespace ClientServerInteractionClassLibrary
         /// </summary>
         /// <param name="answer">The message of the server, which will be sented to the client.</param>
         /// <returns>The client message.</returns>
-        public string ReciveMessages(string answer = "Your message is succesuful sended.")
+        public string ReciveMessages(string answer = "Your message is succesful sended.")
         {
             try
             {

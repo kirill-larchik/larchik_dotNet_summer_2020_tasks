@@ -66,9 +66,9 @@ namespace ClientServerInteractionClassLibrary
                 client.Shutdown(SocketShutdown.Both);
                 client.Close();
 
-                // TODO : event(message);
+                string message = CallEvent(builder.ToString());
 
-                return builder.ToString();
+                return message;
             }
             catch
             {
