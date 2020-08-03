@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static ClientServerInteractionClassLibrary.NetworkPoint;
 
 namespace ClientServerInteractionClassLibrary.EncoidngTypes
 {
@@ -16,19 +17,32 @@ namespace ClientServerInteractionClassLibrary.EncoidngTypes
 
         string[] englistLetters = new string[] { "a", "b", "v", "w", "g", "d", "e", "yo", "j", "z", "i", "", "k", "q", "c", "l", "m", "n", "o", "p", "r", "s", "t", "y", "f", "h", "c", "ch", "sh", "sch", "", "yi", "", "e", "u", "i", "x"};
 
+        ///// <summary>
+        ///// The delegate for methods, which encodings and returns message.
+        ///// </summary>
+        ///// <param name="message">The client(server) message.</param>
+        ///// <returns>New encodinged message.</returns>
+        //public delegate string EncodingMessageHandler(string message);
+
         /// <summary>
         /// Returns transleted message.
         /// </summary>
-        /// <param name="message"></param>
-        /// <returns></returns>
-        public string TranslateMessage(string message)
-        {
-            message = message.ToLower();
+        public EncodingMessageHandler EncodingMessage { get; set; }
 
-            if (IsRussianMessage(message))
-                return TransleteToEnglish(message);
-            else
-                return TransleteToRussian(message);
+        /// <summary>
+        /// Initiliaze the ClientEncodingType object.
+        /// </summary>
+        public ClientEncodingType()
+        {
+            EncodingMessage = delegate (string message)
+            {
+                message = message.ToLower();
+
+                if (IsRussianMessage(message))
+                    return TransleteToEnglish(message);
+                else
+                    return TransleteToRussian(message);
+            };
         }
 
         private bool IsRussianMessage(string message)

@@ -20,7 +20,7 @@ namespace ClientServerInteractionUnitTestProject
             Client client = new Client("first", ipString, port);
 
             ClientEncodingType clientEncoding = new ClientEncodingType();
-            client.EncodingMessageEvent += clientEncoding.TranslateMessage;
+            client.EncodingMessageEvent += clientEncoding.EncodingMessage;
         
             server.Run();
 
