@@ -40,6 +40,7 @@ namespace ClientServerInteractionClassLibrary
             client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             client.Connect(ipPoint);
 
+            message = "client: " + ClientName + "| message: " + message;
             byte[] buffer = Encoding.UTF8.GetBytes(message);
             client.Send(buffer);
         }

@@ -70,7 +70,7 @@ namespace ClientServerInteractionClassLibrary
                 }
                 while (client.Available > 0);
 
-                // TODO: event(clientName, message);
+                CallEvent(builder.ToString());
 
                 buffer = Encoding.UTF8.GetBytes(answer);
                 client.Send(buffer);

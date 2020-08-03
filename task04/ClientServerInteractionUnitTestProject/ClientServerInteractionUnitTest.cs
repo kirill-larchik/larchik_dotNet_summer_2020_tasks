@@ -19,8 +19,7 @@ namespace ClientServerInteractionUnitTestProject
             Server server = new Server(ipString, port);
             Client client = new Client("first", ipString, port);
 
-            ClientEncodingType clientEncoding = new ClientEncodingType();
-            client.EncodingMessageEvent += clientEncoding.EncodingMessage;
+            client.EncodingMessageEvent += ClientEncodingType.EncodingMessage;
         
             server.Run();
 
@@ -31,24 +30,56 @@ namespace ClientServerInteractionUnitTestProject
             Assert.AreEqual(expected, actual);
         }
 
-        //[TestMethod]
-        //[DataRow("127.0.0.1", 8016, "Hello", "Hello")]
-        //[DataRow("127.0.0.1", 8017, "How", "How")]
-        //[DataRow("127.0.0.1", 8018, "123qwerty", "123qwerty")]
-        //[DataRow("127.0.0.1", 8019, "123qwerty!", "123qwerty!")]
-        //[DataRow("127.0.0.1", 8020, "12312312!", "12312312!")]
-        //public void SendMessage_FromClientToServer(string ipString, int port, string firstMessage, string expected)
-        //{
-        //    Server server = new Server(ipString, port);
-        //    Client firstClient = new Client("first", ipString, port);
+        [TestMethod]
+        [DataRow("127.0.0.1", 8016, "Hello, my friend!", "How are you?")]
+        [DataRow("127.0.0.1", 8017, "How", "How")]
+        [DataRow("127.0.0.1", 8018, "123qwerty", "123qwerty фывфы")]
+        [DataRow("127.0.0.1", 8019, "123qwerty!", "123qwerty312123!")]
+        [DataRow("127.0.0.1", 8020, "1231231фывфывфв2!", "12312312!")]
+        public void ReciveMessage_Server_AddMessageToCollection_OneMessage(string ipString, int port, string firstMessage, string secondMessage)
+        {
+            MessageCollection messageCollection = new MessageCollection();
 
-        //    server.Run();
+            Server server = new Server(ipString, port);
+            Client firstClient = new Client("first", ipString, port);
+            Client secondClient = new Client("second", ipString, port);
 
-        //    firstClient.SendMessage(firstMessage);
-        //    string actual = server.ReciveMessages();
+            server.EncodingMessageEvent += messageCollection.MessageHandler;
+            server.Run();
 
-        //    Assert.AreEqual(expected, actual);
-        //}
+            firstClient.SendMessage(firstMessage);
+            server.ReciveMessages();
+            
+            secondClient.SendMessage(secondMessage);
+            server.ReciveMessages();
+
+            Assert.IsTrue(messageCollection[0][0] == firstMessage && messageCollection[1][0] == secondMessage);
+        }
+
+        [TestMethod]
+        [DataRow("127.0.0.1", 8021, "Hello, my friend!", "How are you?")]
+        [DataRow("127.0.0.1", 8022, "How", "How")]
+        [DataRow("127.0.0.1", 8023, "123qwerty", "123qwerty фывфы")]
+        [DataRow("127.0.0.1", 8024, "123qwerty!", "123qwerty312123!")]
+        [DataRow("127.0.0.1", 8025, "1231231фывфывфв2!", "12312312!")]
+        public void ReciveMessage_Server_AddMessageToCollection_TwoMessage(string ipString, int port, string firstMessage, string secondMessage)
+        {
+            MessageCollection messageCollection = new MessageCollection();
+
+            Server server = new Server(ipString, port);
+            Client firstClient = new Client("first", ipString, port);
+
+            server.EncodingMessageEvent += messageCollection.MessageHandler;
+            server.Run();
+
+            firstClient.SendMessage(firstMessage);
+            server.ReciveMessages();
+
+            firstClient.SendMessage(secondMessage);
+            server.ReciveMessages();
+
+            Assert.IsTrue(messageCollection[0][0] == firstMessage && messageCollection[0][1] == secondMessage);
+        }
 
         [TestMethod]
         [ExpectedException(typeof(Exception), "Impossible to run the server.")]

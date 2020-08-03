@@ -11,41 +11,28 @@ namespace ClientServerInteractionClassLibrary.EncoidngTypes
     /// <summary>
     /// Class describing functionality of translation of message to Russian(English) language.
     /// </summary>
-    public class ClientEncodingType
+    public static class ClientEncodingType
     {
-        string[] russianLetters = new string[] { "а", "б", "в", "в", "г", "д", "е", "ё", "ж", "з", "и", "й", "к", "к", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ъ", "ы", "ь", "э", "ю", "я", "икс" };
+        static string[] russianLetters = new string[] { "а", "б", "в", "в", "г", "д", "е", "ё", "ж", "з", "и", "й", "к", "к", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ъ", "ы", "ь", "э", "ю", "я", "икс" };
 
-        string[] englistLetters = new string[] { "a", "b", "v", "w", "g", "d", "e", "yo", "j", "z", "i", "", "k", "q", "c", "l", "m", "n", "o", "p", "r", "s", "t", "y", "f", "h", "c", "ch", "sh", "sch", "", "yi", "", "e", "u", "i", "x"};
-
-        ///// <summary>
-        ///// The delegate for methods, which encodings and returns message.
-        ///// </summary>
-        ///// <param name="message">The client(server) message.</param>
-        ///// <returns>New encodinged message.</returns>
-        //public delegate string EncodingMessageHandler(string message);
+        static string[] englistLetters = new string[] { "a", "b", "v", "w", "g", "d", "e", "yo", "j", "z", "i", "", "k", "q", "c", "l", "m", "n", "o", "p", "r", "s", "t", "y", "f", "h", "c", "ch", "sh", "sch", "", "yi", "", "e", "u", "i", "x"};
 
         /// <summary>
         /// Returns transleted message.
         /// </summary>
-        public EncodingMessageHandler EncodingMessage { get; set; }
+        public static EncodingMessageHandler EncodingMessage = (message) => TransleteMessage(message);
 
-        /// <summary>
-        /// Initiliaze the ClientEncodingType object.
-        /// </summary>
-        public ClientEncodingType()
+        private static string TransleteMessage(string message)
         {
-            EncodingMessage = delegate (string message)
-            {
-                message = message.ToLower();
+            message = message.ToLower();
 
-                if (IsRussianMessage(message))
-                    return TransleteToEnglish(message);
-                else
-                    return TransleteToRussian(message);
-            };
+            if (IsRussianMessage(message))
+                return TransleteToEnglish(message);
+            else
+                return TransleteToRussian(message);
         }
 
-        private bool IsRussianMessage(string message)
+        private static bool IsRussianMessage(string message)
         {
             bool isRussianMessage = false;
 
@@ -66,7 +53,7 @@ namespace ClientServerInteractionClassLibrary.EncoidngTypes
             return isRussianMessage;
         }
 
-        private string TransleteToRussian(string message)
+        private static string TransleteToRussian(string message)
         {
             StringBuilder builder = new StringBuilder();
 
@@ -90,7 +77,7 @@ namespace ClientServerInteractionClassLibrary.EncoidngTypes
             return builder.ToString();
         }
 
-        private string TransleteToEnglish(string message)
+        private static string TransleteToEnglish(string message)
         {
             StringBuilder builder = new StringBuilder();
 

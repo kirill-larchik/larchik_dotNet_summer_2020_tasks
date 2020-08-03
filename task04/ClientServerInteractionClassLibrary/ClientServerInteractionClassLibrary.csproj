@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EncoidngTypes\ClientEncodingType.cs" />
+    <Compile Include="EncoidngTypes\MessageCollection.cs" />
     <Compile Include="NetworkPoint.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
