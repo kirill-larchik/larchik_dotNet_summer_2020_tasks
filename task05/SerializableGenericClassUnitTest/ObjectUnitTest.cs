@@ -1,7 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SerializableClassLibrary;
 using SerializableClassLibrary.Book;
 using SerializableGenericLibrary;
 using System;
+using System.Reflection;
 
 namespace SerializableGenericClassUnitTest
 {
@@ -63,6 +65,22 @@ namespace SerializableGenericClassUnitTest
             Book actual = genericClass.Deserialize(FileType.Xml);
 
             Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception), "The calss version is 1.0.0.0, but your file has version 1.0.0.1.")]
+        public void XmlDeserialization_Book_GetExptected()
+        {
+            SerializableGenericClass<Book> genericClass = new SerializableGenericClass<Book>("test");
+            Book book = genericClass.Deserialize(FileType.Xml);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception), "The calss version is 1.0.0.0, but your file has version 1.0.0.1.")]
+        public void JsonDeserialization_Book_GetExptected()
+        {
+            SerializableGenericClass<Book> genericClass = new SerializableGenericClass<Book>("test");
+            Book book = genericClass.Deserialize(FileType.Json);
         }
     }
 }

@@ -4,6 +4,7 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization.Json;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace SerializableGenericLibrary
@@ -200,21 +201,21 @@ namespace SerializableGenericLibrary
         #region Xml serialize
         private void SerializeXml(T obj)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(T));
+            DataContractSerializer serializer = new DataContractSerializer(typeof(T));
 
-            using (FileStream fs = new FileStream(filePath + ".xml", FileMode.Create))
+            using (XmlWriter writter = XmlWriter.Create(filePath + ".xml"))
             {
-                serializer.Serialize(fs, obj);
+                serializer.WriteObject(writter, obj);
             }
         }
 
         private T DeserializeXml()
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(T));
+            DataContractSerializer serializer = new DataContractSerializer(typeof(T));
 
-            using (FileStream fs = new FileStream(filePath + ".xml", FileMode.Open))
+            using (XmlReader fs = XmlReader.Create(filePath + ".xml"))
             {
-                return (T)serializer.Deserialize(fs);
+                return (T)serializer.ReadObject(fs);
             }
         }
 
@@ -340,21 +341,21 @@ namespace SerializableGenericLibrary
         #region Xml serialize
         private void SerializeCollectionXml(ICollection<T> ts)
         {
-            XmlSerializer serializer = new XmlSerializer(ts.GetType());
+            DataContractSerializer serializer = new DataContractSerializer(ts.GetType());
 
-            using (FileStream fs = new FileStream(filePath + ".xml", FileMode.Create))
+            using (XmlWriter writter = XmlWriter.Create(filePath + ".xml"))
             {
-                serializer.Serialize(fs, ts);
+                serializer.WriteObject(writter, ts);
             }
         }
 
         private ICollection<T> DeserializeCollectionXml(Type type)
         {
-            XmlSerializer serializer = new XmlSerializer(type);
+            DataContractSerializer serializer = new DataContractSerializer(type);
 
-            using (FileStream fs = new FileStream(filePath + ".xml", FileMode.Open))
+            using (XmlReader reader = XmlReader.Create(filePath + ".xml"))
             {
-                return (ICollection<T>)serializer.Deserialize(fs);
+                return (ICollection<T>)serializer.ReadObject(reader);
             }
         }
 

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Book xmlns="http://schemas.datacontract.org/2004/07/SerializableClassLibrary.Book" xmlns:x="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <Version xmlns="" i:type="x:string">1.0.0.1</Version>
+  <Name xmlns="" i:type="x:string">book5</Name>
+  <PublishDate xmlns="" i:type="x:string">11.08.2020</PublishDate>
+  <Author xmlns="" i:type="x:string">author5</Author>
+</Book>
